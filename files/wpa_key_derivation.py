@@ -40,10 +40,10 @@ APmac       = str(wpa[0].addr2).replace(':', '')
 Clientmac   = str(wpa[3].addr2).replace(':', '')
 
 # The ANonce can be found in the 6th packet sent. The result must be formatted and a substring must be created so that only the ANonce is retrieved.
-ANonce      = a2b_hex(str(wpa[5][Raw])[13:][:32].encode('hex'))
+ANonce      = str(wpa[5][Raw])[13:][:32]
 
 # The SNonce can be found in the 7th packet sent. The result must be formatted and a substring must be created so that only the SNonce is retrieved.
-SNonce      = a2b_hex(str(wpa[6][Raw])[13:][:32].encode('hex'))
+SNonce      = str(wpa[6][Raw])[13:][:32]
 
 # The mic_to_test can be found in the 9th packet sent. The result must be formatted and a substring must be created so that only the mic_to_test is retrieved.
 mic_to_test = a2b_hex(str(wpa[8][Raw])[77:][:-2].encode('hex'))
